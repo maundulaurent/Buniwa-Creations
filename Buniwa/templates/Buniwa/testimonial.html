@@ -1,0 +1,254 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buniwa | Testimonials</title>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Mine fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet">
+
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+   
+     <!-- Vendor CSS Files -->
+    <link href="static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+    <!-- Bootstrap Stylesheet -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+
+    <link rel="icon" href="{% static 'images/logo1.png' %}" type="image/x-icon">   
+
+</head>
+<body>
+
+    {% load static %}
+
+<!-- Navbar start -->
+<div class="header-transparent ">
+    <div class="container-fluid z fixed-top">
+        <nav class="navbar navbar-dark navbar-expand-lg ">           
+            <a href="{% url 'index' %}" >
+                <img src="{% static 'images/logo1.png' %}" style="height: 50px; width: 54px; ">
+                
+            </a>
+            <a href="{% url 'index' %}"><h3 class="text-primary d-none fw-bold mb-0">Buni<span class="text-light">wa</span> </h3></a>
+              
+            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-1">
+                    <a href="{% url 'index' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle {% if request.path == '/about' %}active{% endif %}" data-bs-toggle="dropdown">About</a>
+                        <div class="dropdown-menu bg-light">
+                            <a href="{% url 'about' %}" class="dropdown-item  {% if request.path == '/about' %}active{% endif %}">About Us</a>
+                            <a href="{% url 'portfolio' %}" class="dropdown-item  {% if request.path == '/portfolio' %}active{% endif %}">Portfolio</a>
+                            <a href="{% url 'testimonial' %}" class="dropdown-item  {% if request.path == '/testimonial' %}active{% endif %}">Testimonial</a>
+                            <a href="{% url 'team' %}" class="dropdown-item  {% if request.path == '/team' %}active{% endif %}">Our Team</a>
+                            <a href="{% url 'faqs' %}" class="dropdown-item  {% if request.path == '/faqs' %}active{% endif %}">F.A.Qs</a>
+
+                        </div>
+                    </div>
+                    <a href="{% url 'services' %}" class="nav-item nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+                    <a href="{% url 'career' %}" class="nav-item nav-link {% if request.path == '/career' %} active {% endif %}">Careers</a>                   
+                    <a href="{% url 'projects' %}" class="nav-item nav-link {% if request.path == '/projects' %}active{% endif %}">Customer Portal</a>
+                    <a href="{% url 'blog' %}" class="nav-item nav-link {% if request.path == '/blog' %}active{% endif %}">Blog</a>
+                    <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.path == '/contact' %}active{% endif %}" >Contact Us</a>
+
+
+                </div><!-- End NavBar Items -->
+
+                {% if user.is_authenticated %}
+                <div class="nav-item dropdown pe-3">
+                    <a class="nav-link d-flex align-items-center pe-0" href="#">
+                        <img src="{% static 'images/b6.jpg' %}" alt="" class="" style="width: 50px; height: 50px; border-radius: 34px;">
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end profile" style="right: 0;">
+                        <li class="dropdown-header">
+                            <h6>{{ user.first_name }} {{ user.last_name }}</h6>
+                            <!-- <span>Web Engineer</span> -->
+                            <span>Dashboard</span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </div>
+                {% else %}
+
+                <a href="{% url 'signin' %}" class="nav-item nav-link  rounded-pill" style="background: #006400">LogIn</a>
+
+
+                {% endif %}
+                
+                <!-- End Profile Nav -->
+                
+            </div>
+        </nav>
+    </div>
+
+
+    
+</div>
+<!-- Navbar End -->
+
+    <!-- portfolio hero -->
+    <div class="page-header d-flex align-items-center" style="background-image: url('static/images/testimonials-hero.jpg'); background-size: cover;">
+        <div class="container page-hero position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center py-6">
+              <h2 class="display-4 fw-bold text-light py-2">Testimonials</h2>
+              <p class="fs-5 fw-bold">
+              <a href="{% url 'index' %}">Buniwa</a> <i class="bi bi-caret-right"></i> testimonials
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- end portfolio hero -->
+    <!-- testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>testimonials</h2>
+                <p>Hear what our clients have to say from their experiences.</p>
+            </div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    {% for item in testimonial_items %}
+                    <div class="swiper-slide" >
+                        <div class="testimonial-wrap" >
+                            <div class="testimonial-item" style="height: 300px;">
+                                <img src="{{ item.test_image.url }}" class="testimonial-img" alt="">
+                                <h3 class="fs-3"> {{ item.test_name }} </h3>
+                                <h4 class="test-h4"> {{ item.test_position }}  </h4>
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    {{ item.test_quote }}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+     
+<!-- Footer Start -->
+<div class="container-fluid footer py-4 my-3 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="footer-item">
+                    <h1 class="text-primary">Buni<span class="text-dark">wa</span></h1>
+                    <p class="lh-lg mb-4">You can find us in various social media sites.</p>
+                    <div class="footer-icon d-flex">
+                        <a href="https://www.facebook.com/BuniwaCreations" target="_blank" class="btn btn-primary btn-sm-square me-2 rounded-circle" ><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/buniwacreations" target="_blank" class="btn btn-primary btn-sm-square me-2 rounded-circle" ><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" target="_blank" class="btn btn-primary btn-sm-square me-2 rounded-circle" ><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/buniwacreations/" target="_blank" class="btn btn-primary me-2 btn-sm-square rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.link/gvumbp" target="_blank" class="btn btn-primary btn-sm-square rounded-circle"><i class="bi bi-whatsapp"></i></i></a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+                <div class="footer-item">
+                    <h4 class="mb-4">Contact Us</h4>
+                    <div class="d-flex flex-column align-items-start">
+                        <p><i class="fa fa-phone-alt text-primary me-2"></i>(+254) 718 098 806</p>                                               
+                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i><a href="https://maps.app.goo.gl/hAc9nKSj9zLiZupY7" target="_blank" style="text-decoration: none;">Abor House Business Center, Aboretum Drive, Nairobi</a></p>
+                        
+                        <p><i class="fas fa-envelope text-primary me-2"></i>info@buniwacreations.co.ke</p>
+                        <p><i class="fa fa-clock text-primary me-2"></i> 26/7 Hours Service</p>
+                    </div>
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Copyright Start -->
+<div class="container-fluid copyright bg-dark py-4 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <span class="text-light"><a href="https://buniwacreations.co.ke/" target="_blank"><i class="fas fa-copyright text-light me-2"></i>Buniwa Creations</a> | All right reserved.</span>
+            </div>
+            <div class="col-md-6 my-auto text-center text-md-end text-white">                
+                Designed By <a class="border-bottom" href="https://buniwacreations.co.ke/" target="_blank">Buniwa Creations</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Copyright End -->
+  
+
+
+
+
+
+
+        <!-- Vendor JS Files -->
+    <script src="static/vendor/aos/aos.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+
+
+
+    <script src="static/js/testimonial.js"></script>
+    
+</body>
+</html>

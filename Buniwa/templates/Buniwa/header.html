@@ -1,0 +1,81 @@
+{% load static %}
+
+<!-- Navbar start -->
+<div class="header-transparent ">
+    <div class="container-fluid z fixed-top">
+        <nav class="navbar navbar-dark navbar-expand-lg ">           
+            <a href="{% url 'index' %}" >
+                <img src="{% static 'images/logo1.png' %}" style="height: 50px; width: 54px; ">
+                
+            </a>
+            <a href="{% url 'index' %}"><h3 class="text-primary d-none fw-bold mb-0">Buni<span class="text-light">wa</span> </h3></a>
+              
+            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-1">
+                    <a href="{% url 'index' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle {% if request.path == '/about' %}active{% endif %}" data-bs-toggle="dropdown">About</a>
+                        <div class="dropdown-menu bg-light">
+                            <a href="{% url 'about' %}" class="dropdown-item  {% if request.path == '/about' %}active{% endif %}">About Us</a>
+                            <a href="{% url 'portfolio' %}" class="dropdown-item  {% if request.path == '/portfolio' %}active{% endif %}">Portfolio</a>
+                            <a href="{% url 'testimonial' %}" class="dropdown-item  {% if request.path == '/testimonial' %}active{% endif %}">Testimonial</a>
+                            <a href="{% url 'team' %}" class="dropdown-item  {% if request.path == '/team' %}active{% endif %}">Our Team</a>
+                            <a href="{% url 'faqs' %}" class="dropdown-item  {% if request.path == '/faqs' %}active{% endif %}">F.A.Qs</a>
+
+                        </div>
+                    </div>
+                    <a href="{% url 'services' %}" class="nav-item nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+                    <a href="{% url 'career' %}" class="nav-item nav-link {% if request.path == '/career' %} active {% endif %}">Careers</a>                   
+                    <a href="{% url 'projects' %}" class="nav-item nav-link {% if request.path == '/projects' %}active{% endif %}">Customer Portal</a>
+                    <a href="{% url 'blog' %}" class="nav-item nav-link {% if request.path == '/blog' %}active{% endif %}">Blog</a>
+                    <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.path == '/contact' %}active{% endif %}" >Contact Us</a>
+
+
+                </div><!-- End NavBar Items -->
+
+                {% if user.is_authenticated %}
+                <div class="nav-item dropdown pe-3">
+                    <a class="nav-link d-flex align-items-center pe-0" href="#">
+                        <img src="{% static 'images/b6.jpg' %}" alt="" class="" style="width: 50px; height: 50px; border-radius: 34px;">
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end profile" style="right: 0;">
+                        <li class="dropdown-header">
+                            <h6>{{ user.first_name }} {{ user.last_name }}</h6>
+                            <!-- <span>Web Engineer</span> -->
+                            <span>Dashboard</span>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="{% url 'logout' %}">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Sign Out</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </div>
+                {% else %}
+
+                <a href="{% url 'signin' %}" class="nav-item nav-link  rounded-pill" style="background: #006400">LogIn</a>
+
+
+                {% endif %}
+                
+                <!-- End Profile Nav -->
+                
+            </div>
+        </nav>
+    </div>
+
+
+    
+</div>
+<!-- Navbar End -->

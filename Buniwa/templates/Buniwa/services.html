@@ -1,0 +1,121 @@
+{% extends 'Buniwa/base.html' %}
+
+{% load static %}
+
+{% block title %}Our Services | Buniwa Creations {% endblock %}
+
+{% block seo_description %}Buniwa Creations Digital Marketing Services.{% endblock %}
+
+{% block content %}
+
+
+ <!-- Service Start -->
+
+ <!-- service hero -->
+ <div class="page-header d-flex align-items-center" style="background-image: url('static/images/herobg6.jpg'); background-size: cover;">
+  <div class="container page-hero position-relative">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6 text-center py-6">
+        <h2 class="display-4 fw-bold text-light py-2">Our Services</h2>
+        <p class="fs-5 fw-bold">
+          <a href="{% url 'index' %}">Buniwa</a> <i class="bi bi-caret-right"></i> Services
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- end service hero -->
+
+
+ <div class="container-fluid service py-6" id="services" style="background-color:#fff; box-shadow: 5px 5px 0 yellow;">
+    <div class="p-md-4">
+        <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+            <small class="d-inline-block fw-bold text-dark text-uppercase border border-primary rounded-pill px-4 py-1 mb-3" style="background-color: darkgreen; box-shadow: 5px 5px 0 yellow;">Popular Services</small>
+            <h2 class="display-5 mb-5 " style="color: #000;">Outsmart the competition with Digital Marketing Agency</h2>
+        </div>
+
+
+        <!-- ----------------------------- -->
+        {% for item in service_items %}
+        <div class="py-4" id="webdev">
+              <!-- <div class="p-md-5"> -->
+                <div class="row align-items-center">
+                    {% if forloop.counter|divisibleby:2 %}
+
+                    <div class="col-lg-5 order-1 order-lg-1 wow bounceInUp" data-wow-delay="0.1s">
+                        <h3 class="display-5 mb-4"> {{ item.service_header}} </h3>
+                        <img src=" {{ item.service_image.url }} " class="service-img img-fluid rounded" alt="best-web-development-services-in-kenya-at-a-budget">
+                    </div>
+                    <div class="col-lg-7 order-2 order-lg-2 wow bounceInUp" data-wow-delay="0.3s">
+                        
+                        <p class="mb-4 bellefair-font text-dark fs-5" style="border: 1px solid #868585; padding: 15px; border-radius: 10px;"> {{ item.service_quote}} </p>                        
+                    </div>
+                    {% else %}
+
+                    <div class="col-lg-7 order-2 order-lg-1 wow bounceInUp" data-wow-delay="0.3s">
+                        <h3 class="display-3 d-none d-lg-block mb-4"> {{ item.service_header}} </h3>
+                        <p class="mb-4 bellefair-font text-dark fs-5" style="border: 1px solid #868585; padding: 15px; border-radius: 10px;"> {{ item.service_quote}} </p>                        
+                    </div>
+                    <div class="col-lg-5 order-1 order-lg-2 wow bounceInUp" data-wow-delay="0.1s">
+                        <h3 class="display-3 d-lg-none mb-4"> {{ item.service_header}} </h3>
+                        <img src=" {{ item.service_image.url }} " class="service-img img-fluid rounded" alt="best-web-development-services-in-kenya-at-a-budget">
+                    </div>
+
+                    {% endif %}
+
+                </div>
+                <a href="https://wa.link/n09dk9" target="_blank" class="btn btn-outline-success ms-auto mt-2">I need This</a>
+              <!-- </div> -->
+        </div>
+        {% endfor %}
+        <!-- ------------------------------ -->
+
+ 
+
+
+  <!-- why we are best -->
+  <div class="container py-0 py-md-6">
+    <div class="row">
+
+      <div class="col-md-4 mb-3">
+        <button class="btn mb-5" style="background-color: darkgreen; box-shadow: 4px 4px 0 yellow;">Buniwa Creations</button>
+        <h4 class="fw-bold ">Why we are the best.</h4>
+        <div class="card mt-4" style="width: 300px; height: 180px; background-color: darkgreen; box-shadow: 4px 4px 0 yellow;">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text fw-bold display-6 h3 text-dark">Tailored Solutions for every Client</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Second Column -->
+      <div class="col-md-4">
+        <!-- First Card -->
+        <div class="card mb-3" style="width: 300px; height: 180px; background-color: darkgreen; box-shadow: 4px 4px 0 yellow;">
+          <div class="card-body">
+            <p class="card-text fw-bold display-6 h3 text-dark">Data-Driven Decision-Making</p>
+          </div>
+        </div>
+        
+        <!-- Second Card -->
+        <div class="card" style="width: 300px; height: 180px; background-color: darkgreen; box-shadow: 4px 4px 0 yellow; ">
+          <div class="card-body">
+            <p class="card-text fw-bold fs-2 h3 text-dark">Holistic Approach to Digital Success</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Third Column -->
+      <div class="col-md-4 py-4">
+        <!-- Image -->
+        <img src="{% static 'images/service1.png' %}" class="img-fluid" alt="Image">
+      </div>
+    </div>
+  </div>
+  
+  <!-- end -->
+<!-- Service End -->
+
+
+
+{% endblock %}

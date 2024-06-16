@@ -1,0 +1,76 @@
+{% extends 'Buniwa/base.html' %}
+
+{% load static %}
+
+{% block title %}FAQs | Buniwa Creations{% endblock %}
+
+{% block seo_description %}Frequently asked questions{% endblock %}
+
+{% block content %}
+
+<!-- faqs hero -->
+<div class="page-header d-flex align-items-center" style="background-image: url('static/images/herobg52.jpg'); background-size: cover;">
+  <div class="container page-hero position-relative">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6 text-center py-6">
+        <h2 class="display-4 fw-bold py-2 text-light">Faqs</h2>
+        <p class="fs-5 fw-bold">
+        <a href="{% url 'index' %}">Buniwa</a> <i class="bi bi-caret-right"></i> Faqs
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end faqs hero -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto mb-8">
+            <h3 tabindex="0" class="mt-4 mb-0" style="color: green;">Karibu Buniwa Creations FAQs</h2>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                {% for item in accordion_items %}
+                <div class="accordion-item py-3">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="flush-collapse{{ forloop.counter }}">
+                      {{ item.question }}
+                    </button>
+                  </h2>
+                  <div id="flush-collapse{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body bellefair-font text-dark fs-5"> {{ item.answer }} </div>
+                  </div>
+                </div>
+
+                {% endfor %}
+
+              
+        </div>
+    </div>
+</div>
+
+
+<div class="p-md-5">
+    <div class="row">
+        <div class="card" style="background-color: rgb(198, 210, 232);"> 
+            <div class="row g-0">
+                <div class="col-md-9">
+                    <p class="card-title text-dark fs-4 ms-4 mt-3">Ready to get started?</p>
+                    <p class="card-text text-dark ms-4 bellefair-font text-dark fs-5">We are dedicated to driving your 
+                        online success. With a passion for innovation and a commitment to excellence, we specialize in two core pillars
+                        of the digital realm: Digital Marketing and Digital Content Creation. <br><br> 
+                        We don't just create and market; we strategize, analyze, and adapt. Making your online presence as famous as a viral cat video. 
+                        <br>
+                    </p>
+                </div>
+                <div class="col-md-3 col-lg-3" >
+                    <!-- <img src="static/images/b10.jpg" alt="" class="rounded" style="width: 23rem;"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br>
+
+<span class="position-fixed p-2 text-white text-center bellefair-font fs-5" style="bottom: 0; left:0; right:0; background-color: darkgreen;">
+    Your Tasks management includes more and more, Like free consultations!
+</span>
+{% endblock %}

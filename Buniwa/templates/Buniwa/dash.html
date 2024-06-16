@@ -1,0 +1,218 @@
+{% extends 'Buniwa/base.html' %}
+
+{% load static %}
+
+{% block title %}Buniwa | Projects {% endblock %}
+
+{% block content %}
+
+
+    <!-- Template Main CSS File -->
+    <link href="static/css/login.css" rel="stylesheet">
+    <!-- Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+</head>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero">
+  <div class="container position-relative">
+    <div class="row gy-5" data-aos="fade-in">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+            
+
+<!-- A Login System -->
+          <div class="container text-center mb-5 mt-5" id="plogin" style="max-width: 330px;">
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+
+            <form method="post">
+              {% csrf_token %}
+              <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" name="username" class="form-control" placeholder="username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="form-floating mb-2">
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="password" name="pass" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button type="submit" class="w-100 btn-lg" style="background-color: darkgreen; box-shadow: 4px 4px 0 yellow;">Sign In</button>
+            </form>
+              
+            </div>
+<!-- End login -->
+
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="{% static 'images/hero-img.svg' %}" class="img-fluid mt-5" alt="" data-aos="zoom-out" data-aos-delay="100">
+          </div>
+        </div>
+      </div>
+  
+      <div class="icon-boxes position-relative">
+        <div class="container position-relative">
+          <div class="row gy-4 mt-5">
+  
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-easel"></i></div>
+                <h4 class="title">Discover&Plan</h4>
+                <small class="text-white"><i> Give us your ideas and projections.</i></small>
+              </div>
+            </div><!--End Icon Box -->
+
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-command"></i></div>
+                <h4 class="title">Design</h4>
+                <small class="text-white"><i> We show you the best out of us.</i></small>
+              </div>
+            </div><!--End Icon Box -->
+
+            
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                <h4 class="title">Develop</h4>
+                <small class="text-white"><i>Putting your visions into reality.</i></small>
+              </div>
+            </div><!--End Icon Box -->
+  
+            <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon-box">
+                <div class="icon"><i class="bi bi-gem"></i></div>
+                <h4 class="title">Implement</h4>
+                <small class="text-white"><i>We implement it for you.</i></small>
+              </div>
+            </div><!--End Icon Box -->
+
+  
+          </div>
+        </div>
+      </div>
+  
+      </div>
+    </section>
+    <!-- End Hero Section -->
+
+
+    <!-- End Login System -->
+  
+  
+      <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+        <div class="container text-center" data-aos="zoom-out">
+          <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+          <h3>Order To Action</h3>
+          <p class="bellefair-font fs-5"> Get to work with Buniwa by getting in touch with the company's team, who will work for your projects extensively, and considering all your requirements, keeping in mind the time frames. Request an invitation here.</p>
+          <a class="cta-btn" href="#order">Request</a>
+        </div>
+    </section><!-- End Call To Action Section -->
+
+
+
+
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact py-4">
+          <div class="container" data-aos="fade-up">
+    
+            <div class="section-header py-5">
+              <h2 class="text-center">Request an account for Business</h2>
+              <p class="bellefair-font text-dark fs-5">Do business with Buniwa Creations by working with the company's teams transparently. Have an account, then Login into the Projects account for an easy tasking.</p>
+            </div>
+    
+            <div class="row gx-lg-0 gy-4">
+    
+              <div class="col-lg-4">
+    
+                <div class="info-container d-flex flex-column align-items-center justify-content-center">
+                  <div class="info-item d-flex">
+                    <i class="bi bi-geo-alt flex-shrink-0"></i>
+                    <div>
+                      <h4>Find Us:</h4>
+                      <p>55 Main Street, nairobi Kenya.</p>
+                    </div>
+                  </div><!-- End Info Item -->
+    
+                  <div class="info-item d-flex">
+                    <i class="bi bi-envelope flex-shrink-0"></i>
+                    <div>
+                      <h4>Email:</h4>
+                      <p>info@buniwacreations.co.ke</p>
+                    </div>
+                  </div><!-- End Info Item -->
+    
+                  <div class="info-item d-flex">
+                    <i class="bi bi-phone flex-shrink-0"></i>
+                    <div>
+                      <h4>Call:</h4>
+                      <p>+254 740 538 807</p>
+                    </div>
+                  </div><!-- End Info Item -->
+    
+                  <div class="info-item d-flex">
+                    <i class="bi bi-clock flex-shrink-0"></i>
+                    <div>
+                      <h4>Working Days:</h4>
+                      <p>Mon-Sat</p>
+                    </div>
+                  </div><!-- End Info Item -->
+                </div>
+    
+              </div>
+
+
+    
+              <div class="col-lg-8">
+                <form action="." method="post">
+                  {% csrf_token %}
+                  <div class="row m-3">
+                    <div class="col-md-6 form-group">
+                      <input type="text" name="m_name" class="form-control " id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                      <input type="email" class="form-control" name="m_email" id="email" placeholder="Your Email" required>
+                    </div>
+                  </div>
+                  <div class="form-group m-3">
+                    <input type="text" class="form-control" name="m_content" id="subject" placeholder="I want to do business with you..." required>
+                  </div>
+                  <div class="form-group m-3">
+                    <textarea class="form-control" name="m_content" rows="7" placeholder="Description of Project to be handled" required></textarea>
+                  </div>
+                  <div class="text-center"><button class="btn btn-outline-info">Send Message</button></div>
+                  <p class="text center p-3">Have an account?<a href="dash"> Login</a></p>
+                </form>
+              </div><!-- End Contact Form -->
+    
+            </div>
+    
+          </div>
+        </section><!-- End Contact Section -->
+
+
+      <!-- Vendor JS Files -->
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/vendor/aos/aos.js"></script>
+  <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/js/login.js"></script>
+   
+    
+ {% endblock %}

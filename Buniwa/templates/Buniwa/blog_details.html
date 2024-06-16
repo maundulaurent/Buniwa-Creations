@@ -1,0 +1,268 @@
+
+{% extends 'Buniwa/base.html' %}
+
+{% load static %}
+
+{% block title %}Blog details | Buniwa Creations {% endblock %}
+
+{% block content %}
+
+<head>
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+</head>
+
+<main class="py-6">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single fw-bold">{{ card.title }}</h1>
+              <span class="color-text-a">{{ card.category }}</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="{% url 'blog' %}">Blogs</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Blog Post
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Blog Single ======= -->
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="news-img-box">
+              <img src="{{ card.blog_image.url }}" alt="" style="width: 100%; max-height: 500px ;">
+            </div>
+          </div>
+
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 py-5">
+            <div class="post-information">
+              <ul class="list-inline text-center color-a">
+                <li class="list-inline-item mr-2">
+                  <strong class="text-dark">Author: </strong>
+                  <span class="color-text-a">{{ card.author.username}}</span>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <strong class="text-dark">Category: </strong>
+                  <span class="color-text-a">{{ card.category }}</span>
+                </li>
+                <li class="list-inline-item">
+                  <strong class="text-dark">Date: </strong>
+                  <span class="color-text-a"><time datetime="{{ card.published_date }}">{{ card.published_date }}</time></span>
+                </li>
+              </ul>
+            </div>
+            <div class="post-content color-text-a" style="font-size: 1.1rem; line-height: 1.6;">
+              <p class="post-intro text-dark" style="font-size: 1.7rem; font-weight:400; line-height: 1.6; white-space: pre-wrap;">
+                
+                {{ card.content }}
+              </p>
+              <blockquote class="blockquote" style="border-left: 3px solid #2eca6a; color: #000; padding: 1rem 3rem 1.7rem 3rem;">
+                <p class="mb-4">{{ card_authors_comment }}</p>
+                <footer class="blockquote-footer">
+                  <strong>{{ card.author.username}}</strong>
+                  <cite title="Source Title">Author</cite>
+                </footer>
+              </blockquote>
+            </div>
+        
+              
+          </div>
+
+
+<!-- comments section -->
+<div class="comments">
+             
+    <h4 class="comments-count">{{ total_comments }} Comments</h4>
+    <div class="d-flex align-items-center">
+      <img src="{% static 'images/b4.jpg' %}" alt="" class="img-fluid mb-5 d-none d-md-block me-md-3" style="width: 50px; height: 50px; border-radius: 25px;">
+      <div class="flex-grow-1">
+
+        {% if user.is_authenticated %}
+        <form method="post">
+          {% csrf_token %}
+          <div class=" form-group mb-3" >
+              {{ form }}
+          </div>
+         
+          <div class="d-flex justify-content-end">
+              <button type="button" class="btn btn-secondary me-2">Cancel</button>
+              <button type="submit" class="btn btn-primary">Comment</button>
+          </div>
+        </form>
+      {% else %}
+        
+          <div class="d-flex">
+              <a href="{% url 'signin' %}" class="btn"><h1 class="h3 mb-5 fw-normal">Add a public comment...</h1></a>
+              
+          </div>
+
+      {% endif %}
+    </div>
+  </div>
+
+<!-- Displaying Comments for blog posts -->
+
+
+{% for comment in blog_comments %}
+<div id="comment {{ comment.id }}" class="comment">
+  <div class="d-flex">
+    <div class="comment-img"><img src="{% static 'images/b4.jpg' %}" style="width: 50px; height: 50px; border-radius: 25px;" alt=""></div>
+      <div>
+        <h5><a href="">{{ comment.user.username }}</a> <a href="#" class="reply" data-comment-id="{{ comment.id }}"></a></h5>
+        <time datetime="{{ comment.date_added }}">{{ comment.date_added }}</time>
+        <p class="bellefair-font text-dark fs-5">{{ comment.body }}</p>
+        <div class="d-flex align-items-center">
+        <i class="bi bi-hand-thumbs-up mx-4" style="font-size: 28px;"></i>
+        <i class="bi bi-hand-thumbs-down me-4" style="font-size: 28px;"></i>
+        <h5><a href="#" class="reply" data-comment-id="{{ comment.id }}"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+      </div>
+<!-- Lets render the replies -->
+{% for reply in comment.replies.all %}
+  <div id="comment-reply-1" class="comment comment-reply">
+    <div class="d-flex">
+      <div class="comment-img"><img src="{% static 'images/b4.jpg' %}" alt="" style="width: 40px; height: 40px; border-radius: 25px;"></div>
+
+    <div >
+      <strong class="me-2">@{{ reply.user.username }}</strong>{{ reply.body }} <br>
+      <small>{{ reply.date_added }}</small>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-hand-thumbs-up mx-4" style="font-size: 28px;"></i>
+        <i class="bi bi-hand-thumbs-down me-4" style="font-size: 28px;"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+</div>
+</div><!-- End comment -->
+{% empty %}
+<h5>No Comments yet</h5>
+{% endfor %}
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+// Function to handle showing the reply form
+function showReplyForm(replyButton) {
+  const parentId = replyButton.getAttribute("data-comment-id");
+  const formHtml = `
+      <form method="post" class="reply-form">
+          {% csrf_token %}
+          <div class="form-group mb-3">
+              <textarea name="body" class="form-control" rows="3" placeholder="Add a reply..." required></textarea>
+              <input type="hidden" name="parent_id" value="${parentId}">
+          </div>
+          <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary">Reply</button>
+              <button type="button" class="btn btn-secondary me-2 cancel-reply-button">Cancel</button>
+          </div>
+      </form>
+  `;
+  replyButton.parentElement.insertAdjacentHTML('afterend', formHtml);
+  replyButton.style.display = 'none'; // Hide the reply button
+}
+
+// Function to handle hiding the reply form
+function hideReplyForm(cancelButton) {
+  const replyForm = cancelButton.closest("form.reply-form");
+  const replyButton = replyForm.previousElementSibling.querySelector('.reply');
+  replyButton.style.display = 'inline'; // Show the reply button
+  replyForm.remove(); // Remove the reply form
+}
+
+// Event listener for reply buttons
+document.querySelectorAll(".reply").forEach(function(replyButton) {
+  replyButton.addEventListener("click", function(event) {
+      event.preventDefault();
+      showReplyForm(replyButton);
+  });
+});
+
+// Event listener for cancel buttons in reply forms
+document.body.addEventListener("click", function(event) {
+  if (event.target.classList.contains("cancel-reply-button")) {
+      hideReplyForm(event.target);
+  }
+});
+});
+</script>
+
+
+</div>
+
+
+<!-- End blog comments -->
+</div>
+
+
+<!-- end comments -->
+
+            <!-- <div class="form-comments">
+              <div class="title-box-d">
+                <h3 class="title-d"> Leave a Reply</h3>
+              </div>
+              <form class="form-a">
+                <div class="row">
+                    
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <label for="textMessage">Enter message</label>
+                      <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <button type="submit" class="btn btn-a">Send Message</button>
+                  </div>
+                </div>
+              </form>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Single-->
+
+  </main><!-- End #main -->
+    </section>
+    <!-- End Blog Details Section -->
+
+  </main><!-- End #main -->
+
+
+
+            <!-- Vendor JS Files -->
+            <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="static/vendor/aos/aos.js"></script>
+            <script src="static/vendor/glightbox/js/glightbox.min.js"></script>
+            <script src="static/vendor/purecounter/purecounter_vanilla.js"></script>
+            <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
+            <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+            <script src="static/vendor/php-email-form/validate.js"></script>
+        
+          <!-- Template Main JS File -->
+            <script src="{% static 'js/login.js' %}"></script>
+
+{% endblock %}

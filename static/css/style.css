@@ -7,6 +7,8 @@
 /* Global Colors */
 :root {
   --background-color: #ffffff;
+  --brand-green-color: #006400;
+  --brand-yellow-color: #ffff00;
 }
 
 /* For the Coolvetica font */
@@ -280,14 +282,14 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
 .f-content h3 {
   font-size: 24px;
   font-weight: 900;
-  color: #4154f1;
+  color: #006400;
   text-transform: uppercase;
 }
 
 .f-content h2 {
   font-size: 28px;
   font-weight: 900;
-  color: #012970;
+  color: #006400;
 }
 
 .f-content p {
@@ -381,124 +383,112 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
 /*** Events End ***/
 
 
-/*** service start ***/
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
 
-
-/* .service .service-item {
-    position: relative;
-    height: 100%;
-    border-radius: 8px;
-    box-shadow: 0 0 45px #FFD80D;
+.services .img {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.services .service-image{
+  height: 280px;
+  width: 100%; 
 }
 
-.service-content::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 0;
-    top: 0;
-    left: 0;
-    bottom: auto;
-    background: darkgreen;
-    border-radius: 8px;
-    transition: 1s;
+.services .img img {
+  transition: 0.6s;
 }
 
-.service-item:hover .service-content::after {
-    height: 100%;
-    opacity: 1;
-}
-
-.service-item .service-content-icon {
-    position: relative;
-    z-index: 2;
-}
-
-.service-item .service-content-icon i,
-.service-item .service-content-icon p {
-    transition: 1s;
-}
-
-.service-item:hover .service-content-icon i {
-    color: var(--bs-dark) !important;
-}
-
-.service-item:hover .service-content-icon p {
-    color: var(--bs-white);
-}
-
-.service-item:hover .service-content-icon a.btn-primary {
-    background: var(--bs-white);
-    color: var(--bs-dark);
-}
-
-.service-item .service-content-icon a.btn-primary {
-    transition: 1s !important;
-} */
-
-/* .service-img { */
-  /* width: 500px; */
-  /* height: 400px; */
-  /*max-width: 100%;
-  height: auto; */
-/* } */
-
-/* try two */
-
-.services {
-  background-color: color-mix(in srgb, #37517e, transparent 95%);
-}
-
-
-.services .service-item {
-  box-shadow: 0px 5px 90px 0px color-mix(in srgb, #444444, transparent 90%);
+.services .details {
   padding: 50px 30px;
-  transition: all ease-in-out 0.4s;
-  background-color: #ffffff;
-  height: 100%;
+  margin: -100px 30px 0 30px;
+  transition: all ease-in-out 0.3s;
+  background: #ffffff;
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 0 25px rgba( 0, 0, 0, 0.1);
 }
 
-.services .service-item .icon {
-  margin-bottom: 10px;
+.services .details .icon {
+  margin: 0;
+  width: 72px;
+  height: 72px;
+  background: #006400;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 28px;
+  transition: ease-in-out 0.3s;
+  position: absolute;
+  top: -36px;
+  left: calc(50% - 36px);
+  border: 6px solid #ffffff;
 }
 
-.services .service-item .icon i {
-  color: #47b2e4;;
-  font-size: 36px;
-  transition: 0.3s;
-}
-.services .service-item .icon img {
-  margin-bottom: 10px;
-  color: #47b2e4;;
-  /* font-size: 36px; */
-  width: 40px;
-  height: 40px;
-  transition: 0.3s;
-}
-
-.services .service-item h4 {
+.services .details h3 {
+  color: #1a1f24;
   font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-
-.services .service-item h4 a {
-  color: #37517e;
+  margin: 10px 0 15px 0;
+  font-size: 22px;
   transition: ease-in-out 0.3s;
 }
 
-.services .service-item p {
+.services .details p {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
 }
 
-.services .service-item:hover {
-  transform: translateY(-15px);
+
+.services .service-item:hover .details h3 {
+  color: #006400;
 }
 
-.services .service-item:hover h4 a {
-  color: var(--accent-color);
+.services .service-item:hover .details .icon {
+  background: #ffffff;
+  border: 2px solid #006400;
+}
+
+.services .service-item:hover .details .icon i {
+  color: #006400;
+}
+
+.services .service-item:hover .img img {
+  transform: scale(1.2);
+}
+
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  color: #006400;
+}
+
+.section-header p {
+  margin: 0 auto;
+  color: var(--color-secondary-light);
+}
+
+@media (min-width: 1280px) {
+  .section-header p {
+    max-width: 80%;
+  }
 }
 
 .call-to-action {
@@ -710,7 +700,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
 .r-logo span {
   font-size: 26px;
   font-weight: 700;
-  color: #012970;
+  color: #006400;
   font-family: "Nunito", sans-serif;
 }
 
@@ -824,13 +814,13 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
     font-size: 24px;
     padding: 20px;
     margin-right: 15px;
-    color: #106eea;
+    color: #006400;
     border-radius: 50px;
   }
   
   .about .content ul h5 {
     font-size: 18px;
-    color: #555555;
+    color: #006400;
   }
   
   .about .content ul p {
@@ -847,7 +837,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   }
 
   .features .feture-tabs h3 {
-    color: #012970;
+    color: #006400;
     font-weight: 700;
     font-size: 32px;
     margin-bottom: 10px;
@@ -885,7 +875,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   font-size: 18px;
   margin: 0;
   font-weight: 700;
-  color: #012970;
+  color: #006400;
 }
 
 .features .feture-tabs .tab-content i {
@@ -900,7 +890,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
 }
 
 .features .feature-icons h3 {
-  color: #012970;
+  color: #006400;
   font-weight: 700;
   font-size: 32px;
   margin-bottom: 20px;
@@ -921,19 +911,19 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 10px 0;
-  color: #012970;
+  color: #006400;
 }
 
 .features .feature-icons .content .icon-box i {
   font-size: 44px;
   line-height: 44px;
-  color: #0245bc;
+  color: #006400;
   margin-right: 15px;
 }
 
 .features .feature-icons .content .icon-box p {
   font-size: 15px;
-  color: #848484;
+  color: #006400;
 }
 
 .features img {
@@ -1054,7 +1044,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   
   .form-as .form-control:focus {
     box-shadow: none;
-    border-color: #2eca6a;
+    border-color: #006400;
   }
   
   .php-email-form .error-message {
@@ -1142,7 +1132,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   }
 
   .icon-box-content .link-one {
-    color: #4154f1;
+    color: #006400;
   }
   
 
@@ -1196,7 +1186,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   
   .color-text-a {
     text-decoration: none;
-    color: #555555;
+    color: #006400;
   }
   .section-t8 {
     padding-top: 4rem;
@@ -1247,7 +1237,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   }
   
   .breadcrumb a:hover {
-    color: #51678f;
+    color: #006400;
   }
   
   .breadcrumb .breadcrumb-item::before {
@@ -1255,7 +1245,7 @@ pointer-events: none; /* Ensure the overlay doesn't interfere with clicks */
   }
   
   .breadcrumb .active {
-    color: #51678f;
+    color: #006400;
     font-weight: 600;
   }
 
@@ -1397,12 +1387,12 @@ section {
     font-size: 10px;
     font-weight: bold;
     margin: 25px 0 5px 0;
-    color: #111;
+    color: #006400;
 }
 
 .testimonials .testimonial-item .test-h4 {
     font-size: 14px;
-    color: #999;
+    color: #006400;
     margin: 0;
   }
 

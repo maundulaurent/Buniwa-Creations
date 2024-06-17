@@ -18,7 +18,7 @@
       <div class="col-lg-6 text-center py-6">
         <h2 class="display-4 fw-bold text-light py-2">Our Services</h2>
         <p class="fs-5 fw-bold">
-          <a href="{% url 'index' %}">Buniwa</a> <i class="bi bi-caret-right"></i> Services
+          <a href="{% url 'index' %}">Home</a> <i class="bi bi-caret-right"></i> Services
         </p>
       </div>
     </div>
@@ -36,9 +36,8 @@
 
 
         <!-- ----------------------------- -->
-        {% for item in service_items %}
+        <!-- {% for item in service_items %}
         <div class="py-4" id="webdev">
-              <!-- <div class="p-md-5"> -->
                 <div class="row align-items-center">
                     {% if forloop.counter|divisibleby:2 %}
 
@@ -65,10 +64,48 @@
 
                 </div>
                 <a href="https://wa.link/n09dk9" target="_blank" class="btn btn-outline-success ms-auto mt-2">I need This</a>
-              <!-- </div> -->
         </div>
-        {% endfor %}
+        {% endfor %} -->
         <!-- ------------------------------ -->
+
+        <!-- Static Items -->
+
+
+        <!-- item 1 -->
+        <div class="py-4" id="webdev">
+          <!-- <div class="p-md-5"> -->
+            <div class="row align-items-center">
+                <div class="col-lg-5 order-1 order-lg-1 wow bounceInUp" data-wow-delay="0.1s">
+                    <h3 class="display-5 mb-4"> Our Static Service </h3>
+                    <img src=" {% static 'images/b1.jpg' %}" class="service-img img-fluid rounded" alt="best-web-development-services-in-kenya-at-a-budget">
+                </div>
+                <div class="col-lg-7 order-2 order-lg-2 wow bounceInUp" data-wow-delay="0.3s">
+                    
+                    <p class="mb-4 bellefair-font text-dark fs-5" style="border: 1px solid #868585; padding: 15px; border-radius: 10px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ea numquam delectus. Voluptate, dolor numquam. Aperiam porro pariatur ratione, enim eius quo repudiandae vel adipisci eaque facilis nam officia deleniti. </p>                        
+                </div>
+            </div>
+            <a href="https://wa.link/n09dk9" target="_blank" class="btn btn-outline-success ms-auto mt-2">I need This</a>
+          <!-- </div> -->
+        </div>
+
+        <!-- item 2 -->
+        <div class="py-4" id="webdev">
+          <!-- <div class="p-md-5"> -->
+            <div class="row align-items-center">
+                <div class="col-lg-7 ow bounceInUp" data-wow-delay="0.3s">
+                  <p class="mb-4 bellefair-font text-dark fs-5" style="border: 1px solid #868585; padding: 15px; border-radius: 10px;">"Prompt, professional, and friendly! Customer service at its best." — John Smith Product Quality "The quality of the product exceeded my expectations. I'll definitely be a repeat customer!" — Emily Johnson "Top-notch products that are worth every penny. Highly recommended!" — Michael Brown Company Reputation "This company is truly trustworthy and reliable. Their commitment to excellence is evident in every interaction." — Sarah Davis "I can always count on them for exceptional quality and service. They never disappoint." — Chris Wilson</p>                        
+                </div>
+                <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s">
+                    <h3 class="display-5 mb-4"> Our Static Service </h3>
+                    <img src=" {% static 'images/b1.jpg' %}" class="service-img img-fluid rounded" alt="best-web-development-services-in-kenya-at-a-budget">
+                </div>
+
+            </div>
+            <a href="https://wa.link/n09dk9" target="_blank" class="btn btn-outline-success ms-auto mt-2">I need This</a>
+          <!-- </div> -->
+        </div>
+
+      
 
  
 

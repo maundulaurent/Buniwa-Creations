@@ -79,7 +79,27 @@ h4, h5, h6, .h4, .h5, .h6 {
     font-family: 'Coolvetica';
 }
 
- 
+
+/* images animation  */
+@keyframes heartbeat {
+  0%, 100% {
+      transform: scale(1);
+  }
+  25% {
+      transform: scale(1.1);
+  }
+  50% {
+      transform: scale(1);
+  }
+  75% {
+      transform: scale(1.1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 10s infinite;
+}
+/* end  */
 
 .my-6 {
     margin-top: 6rem;
@@ -964,6 +984,44 @@ section {
   /* **********End ********* */
 
 
+/* Portfolio */
+
+
+/*--------------------------------------------------------------
+# Clients Section
+--------------------------------------------------------------*/
+.clients .swiper-slide img {
+  transition: 0.3s;
+  opacity: 0.5;
+}
+
+.clients .swiper-slide img:hover {
+  opacity: 1;
+}
+
+.clients .swiper-wrapper {
+  height: auto;
+}
+
+.clients .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.clients .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.clients .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--accent-color);
+}
+
+/* End Portfolio */
+
+
 /*** testimonial Start ***/
 .testimonial-item {
     border: 1px solid var(--bs-primary);
@@ -1255,6 +1313,41 @@ section {
     color: var(--bs-primary) !important;
 }
 /*** Footer End ***/
+
+
+/*--------------------------------------------------------------
+# Scroll Top Button
+--------------------------------------------------------------*/
+.scroll-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+  background-color: #006400;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.scroll-top i {
+  font-size: 24px;
+  color: #ffff00;
+  line-height: 0;
+}
+
+.scroll-top:hover {
+  background-color: color-mix(in srgb, #006400, transparent 20%);
+  color: #ffff00;
+}
+
+.scroll-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 
 

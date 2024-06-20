@@ -12,6 +12,7 @@ admin.site.register(theTestimonials)
 admin.site.register(theServices)
 admin.site.register(blogComment)
 admin.site.register(TextEntry)
+admin.site.register(theCompany)
 
 @admin.register(theBlog)
 class theBlogAdmin(admin.ModelAdmin):

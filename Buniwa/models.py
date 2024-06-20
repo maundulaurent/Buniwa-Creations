@@ -119,3 +119,14 @@ class theServices(models.Model):
     
     class Meta:
         verbose_name_plural = 'Services'
+
+class theCompany(models.Model):
+    company_name = models.CharField(max_length=50)
+    company_logo = models.ImageField(upload_to='card_images/')
+    
+
+    def __str__(self):
+        return self.company_name
+    
+    class Meta:
+        verbose_name_plural = 'Company Logos'

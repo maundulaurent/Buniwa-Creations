@@ -342,10 +342,10 @@
 
 <!-- works Start -->
 <div class="container-fluid event mt-0 mt-lg-5" id="portfolio">
-    <div class="container">
+    <div class="">
         <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
             <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 mb-3">Our Portfolio</small>
-            <h1 class="display-5 mb-5">Our Latest Projects</h1>
+            <h1 class="display-5">Our Latest Projects</h1>
         </div>
 
 
@@ -468,7 +468,8 @@
 
 
     <section id="clients" class="clients section">
-        <div class="swiper init-swiper">
+      <div class="container-fluid mt-lg-4 pt-lg-4" style="background:#000;">
+        <div class="swiper init-swiper" >
           <script type="application/json" class="swiper-config">
             {
               "loop": true,
@@ -505,16 +506,16 @@
 
             
           </script>
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="{% static 'images/b1.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'images/b2.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'images/b3.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'images/b4.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'images/b5.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'images/b6.jpg' %}" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="{% static 'images/b6.jpg' %}" class="img-fluid" alt=""></div>          </div>
+          <div class="swiper-wrapper align-items-center" >
+            {% for logo in logos %}
+            <div class="swiper-slide"><img src="{{ logo.company_logo.url }}" class="img-fluid" alt=""></div>
+            {% endfor %}
+            </div>
+            
           <div class="swiper-pagination"></div>
         </div>
+
+      </div>
       </section>
 
       <script>

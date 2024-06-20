@@ -1015,6 +1015,8 @@ section {
   background-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
+
+
 .clients .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
 }

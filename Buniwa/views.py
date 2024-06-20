@@ -13,7 +13,8 @@ from .forms import *
 # Create your views here.
 
 def index(request):
-    return render(request, 'Buniwa/index.html')
+    logos = theCompany.objects.all()
+    return render(request, 'Buniwa/index.html', {'logos':logos})
 
 def register(request):
     if request.method == 'POST':

@@ -5,9 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
-SECRET_KEY = 'django-insecure-(xgqe1mvg_kqfwg)h4jgx12(98z(!a21y3z1a^#(jtsoe@(-6b'
+MEDIA_URL = '/media/
 
 
 DEBUG = True
@@ -24,7 +22,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Buniwa',
 ]
 
 MIDDLEWARE = [
@@ -68,20 +65,8 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'portfolio_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'db_password',
-#         'HOST': 'localhost',
-#         'PORT':'5432',
-#     }
-# }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,9 +112,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email settings for using an SMTP server
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.example'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'charlesmaundu16@gmail.com'
-EMAIL_HOST_PASSWORD = ''
